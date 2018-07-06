@@ -45,9 +45,14 @@ def include_file(filename):
             # print _globals[temp_item[0]]
 
 if __name__ == "__main__":
-    include_file(r"E:\5_Python\include_file\test.py")
+
+    #修改目录结构，放在include_file前会报错
+    # import test
+    include_file(r"E:\5_Python\include_file\test_dir\test.py")
+
+    # 修改目录结构，放在include_file后会报错
+    # import test
     print locals()
     print globals()
-    # test.test_print()
     test_print()
     print "Hello World"
