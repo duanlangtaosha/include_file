@@ -29,9 +29,14 @@ def include_file(filename):
 
         #返回的是字典方式的元组（key， value）
         temp_item = _locals.popitem();
-        # print temp_item
-        # print temp_item[0]
-        if inspect.isfunction(temp_item[1]) or inspect.ismodule(temp_item[1]):
+        if inspect.isfunction(temp_item[1]) or inspect.ismodule(temp_item[1]) or inspect.isclass(temp_item[1]):
+            if inspect.ismodule(temp_item[1]):
+
+                #os模块，相当于import os, os_clone是指向
+                os_clone = inspect.getmodule(temp_item[1])
+
+                #os_clone.path和os.path一样的效果
+                print os_clone.path
 
             #temp_item[0]是一个函数或者模块的字符串
             #temp_item[1]是一个函数或者模块的对象实例
